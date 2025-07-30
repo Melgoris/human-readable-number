@@ -41,14 +41,14 @@ module.exports = function toReadable(number) {
   if (hundreds) finalPart.push(`${oneMass[hundreds]} hundred`);
   if (remainder) {
     if (remainder < 10) {
-      parts.push(oneMass[remainder]);
+      finalPart.push(oneMass[remainder]);
     } else if (remainder < 20) {
-      parts.push(teenMass[remainder - 10]);
+      finalPart.push(teenMass[remainder - 10]);
     } else {
-      parts.push(hundredMass[ten] + (one ? ` ${oneMass[one]}` : ''));
+      finalPart.push(hundredMass[ten] + (one ? ` ${oneMass[one]}` : ''));
     }
   }
   if (!number) return 'zero';
 
-  return parts.join(' ');
+  return finalPart.join(' ');
 };
